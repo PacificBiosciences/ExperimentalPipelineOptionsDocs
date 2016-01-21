@@ -47,6 +47,18 @@ use a fairly strict JSON parser.
 }
 ```
 
+## Minimal options
+This is enough.
+```js
+{
+  "hgap": {
+    "GenomeSize": "10000000",
+    "min_length_cutoff": "500"
+  }
+}
+```
+The rest would be auto-generated for you.
+
 ## Defaults
 These (probably) correspond to out internal defaults.
 If you want to set any or all options explicitly, copy/paste into the textbox
