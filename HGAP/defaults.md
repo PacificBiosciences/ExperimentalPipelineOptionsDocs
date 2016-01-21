@@ -78,7 +78,7 @@ If you provide nothing, you'll have these defaults. Also, if you do not override
     "_comment": "Overrides for FALCON"
   },
   "pbalign": {
-    "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --nproc 16 --algorithm=blasr --concordant",
+    "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --algorithm=blasr --concordant",
     "algorithmOptions": "-minMatch 12 -bestn 10 -minPctSimilarity 70.0",
     "_jdnotes": "--maxHits 1 --minAnchorSize 12 --maxDivergence=30 --minAccuracy=0.75 --minLength=50 --hitPolicy=random --seed=1",
     "_comment": "Overrides for blasr alignment (prior to polishing)"
