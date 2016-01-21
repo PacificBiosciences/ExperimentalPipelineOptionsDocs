@@ -46,10 +46,53 @@ use a fairly strict JSON parser.
   "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
 }
 ```
+## Minimal settings
+After adjustment of the GenomeSize, these should produce a decent polished assembly for a wide variety of inputs.
+
+```js
+{
+  "hgap": {
+    "GenomeSize": 10000000,
+    "min_length_cutoff": 500,
+  },
+  "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
+}
+```
+
 ## Defaults
 These (probably) correspond to out internal defaults.
 If you want to set any or all options explicitly, copy/paste into the textbox
 for your pipeline stage, and modify as desired.
+
+### Common defaults
+If you provide nothing, you'll have these defaults. Also, if you do not override these, then you will still have these.
+
+(This needs to be updated.)
+
+```js
+{
+  "hgap": {
+    "min_length_cutoff": 500,
+  },
+  "falcon": {
+    "_comment": "Overrides for FALCON"
+  },
+  "pbalign": {
+    "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --nproc 16 --algorithm=blasr --concordant",
+    "algorithmOptions": "-minMatch 12 -bestn 10 -minPctSimilarity 70.0",
+    "_jdnotes": "--maxHits 1 --minAnchorSize 12 --maxDivergence=30 --minAccuracy=0.75 --minLength=50 --hitPolicy=random --seed=1",
+    "_comment": "Overrides for blasr alignment (prior to polishing)"
+    },
+  "variantCaller": {
+    "options": "--algorithm quiver --diploid --min_confidence 40 --min_coverage 5"
+    "_comment": "Overrides for genomic consensus (polishing)"
+    },
+  "pbsmrtpipe": {
+    "_comment": "Overrides for pbsmrtpipe"
+  },
+  "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
+}
+```
 
 ### Lambda
 ```js
