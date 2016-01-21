@@ -46,18 +46,6 @@ use a fairly strict JSON parser.
   "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
 }
 ```
-## Minimal settings
-After adjustment of the GenomeSize, these should produce a decent polished assembly for a wide variety of inputs.
-
-```js
-{
-  "hgap": {
-    "GenomeSize": 10000000,
-    "min_length_cutoff": 500,
-  },
-  "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
-}
-```
 
 ## Defaults
 These (probably) correspond to out internal defaults.
@@ -130,7 +118,7 @@ If you provide nothing, you'll have these defaults. Also, if you do not override
 ```
 
 ### Generic
-You can use these to let the tool generate its own defaults.
+These are minimal settings. You can use these to let the tool generate its own defaults.
 
 Comments can be removed. But note that strict JSON disallows trailing commas
 for the final field of any dictionary section.
