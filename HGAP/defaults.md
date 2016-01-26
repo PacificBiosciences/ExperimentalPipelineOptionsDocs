@@ -84,7 +84,7 @@ If you provide nothing, you'll have these defaults. Also, if you do not override
     "_comment": "Overrides for blasr alignment (prior to polishing)"
     },
   "variantCaller": {
-    "options": "--algorithm quiver --diploid --min_confidence 40 --min_coverage 5"
+    "options": "--algorithm quiver --diploid --min_confidence 40 --min_coverage 5",
     "_comment": "Overrides for genomic consensus (polishing)"
     },
   "pbsmrtpipe": {
