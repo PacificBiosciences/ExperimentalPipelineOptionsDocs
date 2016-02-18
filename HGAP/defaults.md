@@ -72,25 +72,42 @@ If you provide nothing, you'll have these defaults. Also, if you do not override
 ```js
 {
   "hgap": {
-    "min_length_cutoff": 500,
+    "SuppressAuto": true,
+    "GenomeSize": 8000,
+    "min_length_cutoff": 1,
+    "~comment": "Overrides for full HGAP pipeline"
   },
   "falcon": {
-    "_comment": "Overrides for FALCON"
+    "falcon_sense_option": "--output_multi --min_idt 0.77 --min_cov 10 --max_n_read 2000 --n_core 6",
+    "length_cutoff": "1200",
+    "length_cutoff_pr": "50",
+    "overlap_filtering_setting": "--max_diff 1000 --max_cov 100000 --min_cov 0 --bestn 1000 --n_core 4",
+    "ovlp_DBsplit_option": "-s50 -a",
+    "ovlp_HPCdaligner_option": "-v -k15 -h60 -w6 -e.95 -l40 -s100 -M16",
+    "ovlp_concurrent_jobs": "32",
+    "pa_DBsplit_option": "-x1200 -s500 -a",
+    "pa_HPCdaligner_option": "-v -k16 -h35 -w7 -e.70 -l40 -s100 -M16",
+    "pa_concurrent_jobs": "32",
+    "~comment": "Overrides for FALCON"
   },
   "pbalign": {
-    "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --algorithm=blasr --concordant",
+    "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --algorithm=blasr",
     "algorithmOptions": "-minMatch 12 -bestn 10 -minPctSimilarity 70.0",
     "_jdnotes": "--maxHits 1 --minAnchorSize 12 --maxDivergence=30 --minAccuracy=0.75 --minLength=50 --hitPolicy=random --seed=1",
-    "_comment": "Overrides for blasr alignment (prior to polishing)"
-    },
-  "variantCaller": {
-    "options": "--algorithm quiver --diploid --min_confidence 40 --min_coverage 5",
-    "_comment": "Overrides for genomic consensus (polishing)"
-    },
-  "pbsmrtpipe": {
-    "_comment": "Overrides for pbsmrtpipe"
+    "~comment": "Overrides for blasr alignment (prior to polishing)"
   },
-  "_comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
+  "variantCaller": {
+    "options": "--algorithm arrow --minConfidence 40 --minCoverage 5",
+    "~comment": "Overrides for genomic consensus (polishing)"
+  },
+  "pbcoretools.tasks.filterdataset": {
+    "other_filters": "rq >= 0.7",
+    "read_length": 0
+  },
+  "pbsmrtpipe": {
+    "~comment": "Overrides for pbsmrtpipe"
+  },
+  "~comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
 }
 ```
 
@@ -105,14 +122,14 @@ If you provide nothing, you'll have these defaults. Also, if you do not override
   },
   "falcon": {
     "falcon_sense_option": "--output_multi --min_idt 0.77 --min_cov 10 --max_n_read 2000 --n_core 6",
-    "length_cutoff": "1",
-    "length_cutoff_pr": "1",
+    "length_cutoff": "1200",
+    "length_cutoff_pr": "50",
     "overlap_filtering_setting": "--max_diff 1000 --max_cov 100000 --min_cov 0 --bestn 1000 --n_core 4",
     "ovlp_DBsplit_option": "-s50 -a",
-    "ovlp_HPCdaligner_option": "-v -k15 -h60 -w5 -H1 -e.95 -l40 -s100 -M4",
+    "ovlp_HPCdaligner_option": "-v -k15 -h60 -w6 -e.95 -l40 -s100 -M16",
     "ovlp_concurrent_jobs": "32",
-    "pa_DBsplit_option": "-x250 -s500 -a",
-    "pa_HPCdaligner_option": "-v -k15 -h35 -w5 -H1 -e.70 -l40 -s100 -M4",
+    "pa_DBsplit_option": "-x1200 -s500 -a",
+    "pa_HPCdaligner_option": "-v -k16 -h35 -w7 -e.70 -l40 -s100 -M16",
     "pa_concurrent_jobs": "32",
     "_comment": "Overrides for FALCON"
   },
