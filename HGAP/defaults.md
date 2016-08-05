@@ -225,3 +225,14 @@ for the final field of any dictionary section.
   "~comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
 }
 ```
+
+## "falcon" options
+These are available for the "falcon" section.
+
+* https://github.com/PacificBiosciences/FALCON/wiki/Options-Available
+
+See also:
+
+* https://github.com/PacificBiosciences/FALCON/wiki/Options
+* https://github.com/PacificBiosciences/FALCON/wiki/Manual
+* https://dazzlerblog.wordpress.com/command-guides/
