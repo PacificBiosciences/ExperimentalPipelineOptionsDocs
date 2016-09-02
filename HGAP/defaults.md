@@ -122,7 +122,7 @@ If you provide nothing, you will have these defaults. Also, if you do not overri
   "pbalign": {
     "options": "--hitPolicy randombest --minAccuracy 70.0 --minLength 50 --algorithm=blasr",
     "algorithmOptions": "-minMatch 12 -bestn 10 -minPctSimilarity 70.0",
-    "_jdnotes": "--maxHits 1 --minAnchorSize 12 --maxDivergence=30 --minAccuracy=0.75 --minLength=50 --hitPolicy=random --seed=1",
+    "~jdnotes": "--maxHits 1 --minAnchorSize 12 --maxDivergence=30 --minAccuracy=0.75 --minLength=50 --hitPolicy=random --seed=1",
     "~comment": "Overrides for blasr alignment (prior to polishing)"
   },
   "variantCaller": {
