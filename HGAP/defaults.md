@@ -143,14 +143,9 @@ If you provide nothing, you will have these defaults. Also, if you do not overri
 ### Lambda
 ```js
 {
-  "hgap": {
-    "SuppressAuto": true,
-    "min_length_cutoff": 1,
-    "~comment": "Overrides for full HGAP pipeline"
-  },
   "falcon": {
     "genome_size": "8000",
-    "falcon_sense_option": "--output_multi --min_idt 0.77 --min_cov 10 --max_n_read 2000 --n_core 6",
+    "falcon_sense_option": "--min_idt 0.77 --min_cov 10 --max_n_read 2000 --n_core 6",
     "length_cutoff": "1200",
     "length_cutoff_pr": "50",
     "overlap_filtering_setting": "--max_diff 1000 --max_cov 100000 --min_cov 0 --bestn 1000 --n_core 4",
@@ -162,18 +157,30 @@ If you provide nothing, you will have these defaults. Also, if you do not overri
     "pa_concurrent_jobs": "32",
     "~comment": "Overrides for FALCON"
   },
-  "pbalign": {
-    "~comment": "Overrides for blasr alignment (prior to polishing)"
-  },
-  "variantCaller": {
-    "~comment": "Overrides for genomic consensus (polishing)"
-  },
-  "pbsmrtpipe": {
-    "~comment": "Overrides for pbsmrtpipe"
-  },
-  "~comment": "https://github.com/PacificBiosciences/ExperimentalPipelineOptionsDocs/HGAP"
 }
 ```
+
+### E.coli
+```js
+{
+  "falcon": {
+    "genome_size": "4500000",
+    "falcon_sense_option": "--min_idt 0.70 --min_cov 4 --max_n_read 200 --n_core 6",
+    "length_cutoff": "-1",
+    "length_cutoff_pr": "500",
+    "overlap_filtering_setting": "--max_diff 60 --max_cov 100 --min_cov 4 --bestn 10 --n_core 4",
+    "ovlp_DBsplit_option": "-x500 -s200 -a",
+    "ovlp_HPCdaligner_option": "-v -B24 -t16 -h35 -e.93 -l1000 -s100 -k25",
+    "ovlp_concurrent_jobs": "32",
+    "pa_DBsplit_option": "-x500 -s200 -a",
+    "pa_HPCdaligner_option": "-v -B24 -t14 -h70 -e.75 -l1000 -s100 -k18",
+    "pa_concurrent_jobs": "32",
+    "seed_coverage": "30",
+    "~comment": "Overrides for FALCON"
+  },
+}
+```
+
 
 ### Generic
 These are minimal settings. You can use these to let the tool generate its own defaults.
